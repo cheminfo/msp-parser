@@ -14,10 +14,22 @@
 ## Usage
 
 ```js
-import { myModule } from 'msp-parser';
+import { parse } from 'msp-parser';
 
-const result = myModule(args);
-// result is ...
+const result = parse(mspText);
+
+/*
+{
+  data:[],
+}
+*/
+```
+
+```js
+import { mspIterator } from 'msp-parser';
+for (const entry of mspIterator(mspText)) {
+  console.log(entry);
+}
 ```
 
 ## License
