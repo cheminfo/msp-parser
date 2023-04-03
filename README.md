@@ -14,18 +14,13 @@
 ## Usage
 
 ```js
-import { parse } from 'msp-parser';
+import { parseMSP } from 'msp-parser';
 
-const result = parse(mspText);
-
-/*
-{
-  data:[],
-}
-*/
+const result = parseMSP(mspText);
 ```
 
 ```js
+// not implemented yet
 import { mspIterator } from 'msp-parser';
 for (const entry of mspIterator(mspText)) {
   console.log(entry);
