@@ -5,7 +5,9 @@
 [![Test coverage][codecov-image]][codecov-url]
 [![npm download][download-image]][download-url]
 
-.
+Parse the mass .msp format.
+
+It is being used for the MassBank database releases.
 
 ## Installation
 
