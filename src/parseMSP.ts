@@ -1,10 +1,15 @@
-import {
+import type {
   MeasurementXY,
   MeasurementXYVariables,
   TextData,
 } from 'cheminfo-types';
 import { ensureString } from 'ensure-string';
 
+/**
+ * Parse a MSP file containing one or many mass spectra.
+ * @param blob - The MSP data, as a string, an ArrayBuffer or a typed array.
+ * @returns One measurement per entry found in the file.
+ */
 export function parseMSP(blob: TextData): MeasurementXY[] {
   const results = [];
   const entries = ensureString(blob).split(/\r?\n\r?\n/);
@@ -22,6 +27,7 @@ function parseEntry(entry: string): MeasurementXY {
   const meta: Record<string, string> = {};
   for (const line of mataLines) {
     const [key, value] = line.split(':');
+    if (key === undefined || value === undefined) continue;
     meta[key] = value.trim();
   }
   const variables: MeasurementXYVariables<number[]> = {

@@ -13,12 +13,26 @@ It is being used for the MassBank database releases.
 
 `$ npm i msp-parser`
 
+This package is ESM-only. CommonJS consumers need Node.js ≥ 20.19, ≥ 22.12 or
+any 24.x and later (where `require()` of ESM works), or should migrate to
+`import`.
+
 ## Usage
+
+`parseMSP` accepts the content of a `.msp` file as a string, an `ArrayBuffer` or
+a typed array, and returns one
+[`MeasurementXY`](https://github.com/cheminfo/cheminfo-types) per entry: `meta`
+holds the `Key: value` header lines and `variables.x` / `variables.y` hold the
+`m/z` and relative intensity of the peaks.
 
 ```js
 import { parseMSP } from 'msp-parser';
 
 const result = parseMSP(mspText);
+
+// result[0].meta.Name -> 'Pyrophen'
+// result[0].variables.x.data -> [91.0542, 125.0233, ...]
+// result[0].variables.y.data -> [245, 999, ...]
 ```
 
 ```js

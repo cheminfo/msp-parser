@@ -1,14 +1,19 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
-import { parseMSP } from '../index';
+import { expect, test } from 'vitest';
+
+import { parseMSP } from '../index.ts';
 
 test('parseMSP', () => {
-  const blob = readFileSync(join(__dirname, 'massBank.msp'));
+  const blob = readFileSync(join(import.meta.dirname, 'massBank.msp'));
   const results = parseMSP(blob);
+
   expect(results).toHaveLength(2);
-  // @ts-expect-error It is a test we don't care
-  expect(Object.keys(results[0].meta)).toStrictEqual([
+
+  const [first] = results;
+
+  expect(Object.keys(first?.meta ?? {})).toStrictEqual([
     'Name',
     'Synon',
     'DB#',
@@ -29,7 +34,7 @@ test('parseMSP', () => {
     'Splash',
     'Num Peaks',
   ]);
-  expect(results[0].variables).toStrictEqual({
+  expect(first?.variables).toStrictEqual({
     x: {
       data: [
         91.0542, 125.0233, 154.0499, 155.0577, 185.0961, 200.107, 229.0859,

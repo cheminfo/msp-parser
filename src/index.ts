@@ -1,1 +1,1 @@
-export * from './parseMSP';
+export * from './parseMSP.ts';
