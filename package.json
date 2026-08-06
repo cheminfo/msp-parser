@@ -1,6 +1,6 @@
 {
   "name": "msp-parser",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Parse the mass .msp format",
   "type": "module",
   "exports": {

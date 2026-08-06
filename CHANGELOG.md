@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0](https://github.com/cheminfo/msp-parser/compare/v0.0.1...v0.1.0) (2026-08-06)
+
+
+### Features
+
+* migrate to type: module and update dependencies ([c4e05f9](https://github.com/cheminfo/msp-parser/commit/c4e05f912105805c5219a3680cf22978268b9b22))
+* parse meta data ([317142f](https://github.com/cheminfo/msp-parser/commit/317142f4e74396398e7362bf3c0b14ec7aeb81cc))
+
 ## 0.0.1 (2023-04-03)
 
 
