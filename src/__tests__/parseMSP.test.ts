@@ -52,3 +52,16 @@ test('parseMSP', () => {
 
   expect(results).toMatchSnapshot();
 });
+
+test('a repeated field keeps all its values', () => {
+  const blob = readFileSync(join(import.meta.dirname, 'massBank.msp'));
+  const [first, second] = parseMSP(blob);
+
+  expect(first?.meta.Synon).toBe(
+    'N-[(1S)-1-(4-methoxy-6-oxopyran-2-yl)-2-phenylethyl]acetamide',
+  );
+  expect(second?.meta.Synon).toStrictEqual([
+    'F2 Toxin',
+    '(2E,11S)-15,17-dihydroxy-11-methyl-12-oxabicyclo[12.4.0]octadeca-1(14),2,15,17-tetraene-7,13-dione',
+  ]);
+});

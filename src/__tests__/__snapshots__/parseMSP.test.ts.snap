@@ -75,7 +75,10 @@ exports[`parseMSP 1`] = `
       "SMILES": "C[C@H]1CCCC(=O)CCC/C=C/C2=CC(=CC(=C2C(=O)O1)O)O",
       "Spectrum_type": "MS2",
       "Splash": "splash10-000i-2930000000-5f23d1f8df586bd436be",
-      "Synon": "(2E,11S)-15,17-dihydroxy-11-methyl-12-oxabicyclo[12.4.0]octadeca-1(14),2,15,17-tetraene-7,13-dione",
+      "Synon": [
+        "F2 Toxin",
+        "(2E,11S)-15,17-dihydroxy-11-methyl-12-oxabicyclo[12.4.0]octadeca-1(14),2,15,17-tetraene-7,13-dione",
+      ],
     },
     "variables": {
       "x": {
